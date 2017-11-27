@@ -30,4 +30,5 @@ def is_palindrome(n: int):
 
 all_palindromes = filter(is_palindrome, vals2test)
 solution = max(all_palindromes)
-print(solution)
+
+# solution => 906609
