@@ -25,7 +25,9 @@ import numpy as np
 
 
 def is_prime(n):
-    """Determine whether or not `n` is prime."""
+    """
+    Determine whether or not `n` is prime.
+    """
     if n in (2, 3, 5, 7, 11, 13, 17, 19): return(True)
     if (n<=1 or n%2==0 or n%3==0): return(False)
     # determine upper limit of test range =>
@@ -61,9 +63,9 @@ if __name__ == "__main__":
     # sys.exit()
 
     #arr = multiprocessing.Array('L', range(1, 5000000))
-    arr = multiprocessing.Array('L', np.array(range(1, 5000000)), lock=False)
+    arr = multiprocessing.Array('L', np.array(range(1, 1000000)), lock=False)
     pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
-    pool_outputs = pool.imap(p_func, arr, chunksize=1000)
+    pool_outputs = pool.map(p_func, arr, chunksize=1000)
     pool.close(); pool.join()
 
     solution = len([i for i in pool_outputs if i!=-1])
