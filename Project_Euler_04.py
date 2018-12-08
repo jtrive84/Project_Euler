@@ -13,8 +13,8 @@ import itertools
 
 # generate list of candidate integers
 vals2test = list(set([i*j for
-                (i, j) in itertools.product(
-                    range(100,1000), repeat=2)]))
+	(i, j) in 
+		itertools.product(range(100,1000), repeat=2)]))
 
 
 def is_palindrome(n: int):
